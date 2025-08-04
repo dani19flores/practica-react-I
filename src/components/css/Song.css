@@ -1,0 +1,26 @@
+.song {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.song__details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.song__details h3,
+.song__details p {
+    margin: 0;
+    padding: 0; 
+}
