@@ -1,6 +1,3 @@
-
-
-
 import Song from './Song';
 import { Component } from 'react';
 import '../css/Song.css';
@@ -14,9 +11,15 @@ class SongList extends Component {
             { image: 'https://i.scdn.co/image/ab67616d000048517c8977a0ad3a3a0627be9ed7',  title: 'Higher Love', artist: 'Kygo, Whitney Houston', duration: '3:48' },
             { image: 'https://i.scdn.co/image/ab67616d00004851a91c10fe9472d9bd89802e5a',  title: 'good 4 u', artist: 'Olivia Rodrigo', duration: '2:58' },
         ];
+
+        const filteredSongs = songs.filter(song =>
+            song.title.toLowerCase().includes(this.props.searchTerm.toLowerCase()) ||
+            song.artist.toLowerCase().includes(this.props.searchTerm.toLowerCase())
+        );
+
         return (
             <main style={{ padding: '1rem' }}>
-                {songs.map((song, index) => (
+                {filteredSongs.map((song, index) => (
                     <Song 
                         key={index}
                         image={song.image}

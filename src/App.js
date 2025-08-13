@@ -4,15 +4,19 @@ import SongList from './components/SongList';
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-    console.log('La aplicación se ha cargado correctamente');
-  }
+  state = {
+    searchTerm: ''
+  };
+
+  handleSearch = (term) => {
+    this.setState({ searchTerm: term });
+  };
 
   render() {
     return (
       <div className="App" style={{ maxWidth: '600px', margin: '2rem auto', fontFamily: 'Arial, sans-serif' }}>
-        <Header />
-        <SongList/>
+        <Header onSearch={this.handleSearch} />
+        <SongList searchTerm={this.state.searchTerm} />
       </div>
     );
   }
