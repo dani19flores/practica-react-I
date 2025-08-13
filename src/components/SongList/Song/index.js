@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './css/Song.css';
+import { Component } from 'react';
 
 class Song extends Component {
     render() {
         const { image, title, artist, duration } = this.props;
+        console.log({ image, title, artist, duration })
         return (
             <div className='song'>
                 <img src={image} alt={title} />
