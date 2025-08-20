@@ -5,11 +5,19 @@
     gap: 1rem;
     border: 1px solid #ccc;
     padding: 1rem;
-    margin: 0.5rem 0;
+    margin: 1rem;
     border-radius: 5px;
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
 }
+
+.title, .library p{
+    padding: 1rem;
+}
+
+
+
+
 
 .song__details {
     flex-grow: 1;
@@ -20,7 +28,20 @@
 
 
 .song__details h3,
-.song__details p {
+.song__details p{
     margin: 0;
     padding: 0; 
+}
+
+.song button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.song button:hover {
+    background: #45a049;
 }
