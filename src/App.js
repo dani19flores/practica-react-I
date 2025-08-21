@@ -6,11 +6,11 @@ import './App.css';
 
 export default function App() {
   const songs = [
-            { image: 'https://i.scdn.co/image/ab67616d00004851f957156b84dbdf7dcd997402', title: 'Fly', artist: 'Jeremiah Miller', duration: '2:30' },
-            { image: 'https://i.scdn.co/image/ab67616d000048515a7f21dad5c796d719650972', title: 'RITMO (Bad Boys For Life)', artist: 'Black Eyed Peas, J Balvin', duration: '3:34' },
-            { image: 'https://i.scdn.co/image/ab67616d000048517c8977a0ad3a3a0627be9ed7',  title: 'Higher Love', artist: 'Kygo, Whitney Houston', duration: '3:48' },
-            { image: 'https://i.scdn.co/image/ab67616d00004851a91c10fe9472d9bd89802e5a',  title: 'good 4 u', artist: 'Olivia Rodrigo', duration: '2:58' },
-        ];
+            { id: 1, image: 'https://i.scdn.co/image/ab67616d00004851f957156b84dbdf7dcd997402', title: 'Fly', artist: 'Jeremiah Miller', duration: '2:30' },
+            { id: 2, image: 'https://i.scdn.co/image/ab67616d000048515a7f21dad5c796d719650972', title: 'RITMO (Bad Boys For Life)', artist: 'Black Eyed Peas, J Balvin', duration: '3:34' },
+            { id: 3, image: 'https://i.scdn.co/image/ab67616d000048517c8977a0ad3a3a0627be9ed7',  title: 'Higher Love', artist: 'Kygo, Whitney Houston', duration: '3:48' },
+            { id: 4, image: 'https://i.scdn.co/image/ab67616d00004851a91c10fe9472d9bd89802e5a',  title: 'good 4 u', artist: 'Olivia Rodrigo', duration: '2:58' },
+  ];
 
   const [searchResults] = useState(songs);
   const [library, setLibrary] = useState([]);
@@ -22,6 +22,10 @@ export default function App() {
       }
   };
 
+  const removeToLibrary = (song) => {
+      setLibrary(library.filter((item) => item.id !== song.id));
+  }
+
   useEffect(() => {
     console.log("✅ Biblioteca actualizada:", library);
   }, [library]);
@@ -31,7 +35,6 @@ export default function App() {
       song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       song.artist.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
 
   return (
       <div className="app">
@@ -43,7 +46,9 @@ export default function App() {
           songs={filteredResults} 
           addToLibrary={addToLibrary} />
         <Library 
-          songs={library} />
+          songs={library}
+          
+          removeToLibrary={removeToLibrary}/>
       </div>
     );
 }

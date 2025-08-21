@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/Song.css";
 
-const Song = ({ song, showAddButton, addToLibrary  }) => {
+const Song = ({ song, showAddButton, addToLibrary, showRemovedBtn, removeToLibrary }) => {
     return (
         <section className='song'>
             <img src={song.image} alt={song.title} />
@@ -13,6 +13,11 @@ const Song = ({ song, showAddButton, addToLibrary  }) => {
             {showAddButton && (
                 <button onClick={() => addToLibrary(song)}>Agregar</button>
             )}
+            {showRemovedBtn && (
+                <button onClick={() => removeToLibrary(song)}>Borrar</button>
+            )
+                
+            }
         </section>
     );
 };
